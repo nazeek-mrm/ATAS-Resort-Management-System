@@ -1,0 +1,37 @@
+# Environment & Sensitive Credentials (NEVER COMMIT SENSITIVE PASSWORDS)
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Dependencies
+vendor/
+backend/vendor/
+node_modules/
+frontend/node_modules/
+
+# Production Builds
+frontend/dist/
+frontend/dist-ssr/
+backend/public/build/
+
+# Logs & Framework Storage
+*.log
+backend/storage/logs/*.log
+backend/storage/*.key
+backend/bootstrap/cache/*.php
+backend/storage/framework/cache/data/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+
+# Uploaded receipts (preserve folder structure)
+backend/storage/app/public/receipts/*
+!backend/storage/app/public/receipts/.gitkeep
+
+# Editor & System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
