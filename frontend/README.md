@@ -1,16 +1,67 @@
-# React + Vite
+# 🌴 ATAS Resort — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+The frontend application for the **ATAS Resort Booking & Management System**, built with React, Vite, React Router, and Tailwind CSS.
 
-Currently, two official plugins are available:
+## Technology Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- Vite 8
+- React Router DOM 7
+- Tailwind CSS 3
+- JavaScript
+- HTML and CSS
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Guest Booking Portal
+- Interactive resort availability calendar
+- Four-step booking workflow
+- Dynamic package pricing and advance payment calculation
+- Customer information validation
+- Bank transfer receipt upload
+- Responsive layouts for desktop, tablet, and mobile devices
 
-## Expanding the Oxlint configuration
+### Administration Interface
+- Administrator login
+- Booking management dashboard
+- Payment verification interface
+- Booking status management
+- Financial summaries and reports
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Installation
+
+### 1. Navigate to the frontend folder
+
+```powershell
+cd frontend
+```
+
+### 2. Install dependencies
+
+```powershell
+npm install
+```
+
+### 3. Start the development server
+
+```powershell
+npm run dev
+```
+
+Open the local URL displayed by Vite, usually:
+
+http://localhost:5173
+
+## Backend Integration
+
+This frontend communicates with the Laravel backend through API requests.
+
+Ensure the Laravel backend is running and the API configuration points to the correct server.
+
+For complete installation instructions, see the [Main Project README](../README.md).
+
+## Developer
+
+**Nazeek MRM**
+
+GitHub: https://github.com/nazeek-mrm
