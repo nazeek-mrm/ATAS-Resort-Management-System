@@ -1,175 +1,228 @@
 # 🌴 ATAS RESORT — Luxury Getaway Booking & Management System
 
-> A luxury private resort reservation web application and administrative management system built with **React (Vite)** and **Laravel 11**.
-
----
+A full-stack private resort reservation application and administrative management system built with **React 19**, **Vite 8**, **Laravel 12**, and **MySQL/MariaDB**.
 
 ## 📖 Project Overview
 
-**ATAS Resort** provides an exclusive getaway booking experience. Guests can view date availability in real-time, select custom packages based on group size and duration, submit booking requests, and upload bank transfer receipts or reference codes.
+**ATAS Resort** provides an online booking experience for guests and a management dashboard for resort administrators. Guests can view date availability, select packages based on group size and duration, submit booking requests, and provide bank transfer receipts or transaction references.
 
-The system includes a dedicated **Admin Dashboard** allowing resort management to verify payments, confirm or reject bookings, add internal notes, review revenue statistics, and export monthly business reports.
-
----
+Administrators can review payments, confirm or reject bookings, add internal notes, review revenue statistics, and generate monthly reports.
 
 ## ✨ Key Features
 
-### 🏨 Guest Booking Portal (Frontend)
-- **Interactive Availability Calendar**: Visual indicators for available, pending, and confirmed dates.
-- **4-Step Booking Workflow**:
-  1. **Date Selection**: Pick available dates with real-time status.
-  2. **Package Selection**: Day, Day-Night, and Night tiers with dynamic pricing and automatic 30% advance calculation.
-  3. **Customer Details**: Strict email domain validation (blocking incomplete/typo domains like `@gmail.co`) and mobile validation.
-  4. **Payment Proof**: Drag-and-drop bank receipt upload (JPG, PNG, PDF up to 5MB) or bank reference transaction number.
-- **Classical Modal Error Dialogs**: Elegant resort-branded popup modals with auto-focus assistance.
-- **Silent Background Session Timers**: 6 minutes per step (1–3) and 12 minutes for payment step with automatic refresh protection.
-- **Responsive Luxury Design**: Built with Tailwind CSS, custom animations, and Playfair Display typography.
+### 🏨 Guest Booking Portal
+
+- **Availability calendar:** Visual indicators for available, pending, and confirmed dates.
+- **Four-step booking workflow:**
+  1. **Date selection:** Choose dates using availability information.
+  2. **Package selection:** Choose Day, Day-Night, or Night packages, with dynamic pricing and automatic 30% advance calculation.
+  3. **Customer details:** Email-domain and mobile-number validation.
+  4. **Payment proof:** Upload a JPG, PNG, or PDF receipt (up to 5 MB), or provide a bank transaction reference.
+- **Branded error dialogs:** Modal feedback with focus assistance.
+- **Session timers:** Six minutes per step for steps 1–3 and twelve minutes for the payment step, with expiry handling.
+- **Responsive interface:** Tailwind CSS, animations, and Playfair Display typography.
 
 ### 🛡️ Admin Management Dashboard
-- **Secure Authentication**: Protected dashboard with show/hide password toggles and back-button navigation guards.
-- **Live Booking Overview**: Filter by Pending, Confirmed, Rejected, or Cancelled bookings with real-time status badges.
-- **Receipt Verification**: In-modal image and PDF receipt preview with direct download capability.
-- **Internal Admin Notes**: Fast note-taking per booking for internal communication.
-- **Financial & Monthly Reports**: Revenue summaries, advance collected, check-in balances, and one-click printable reports.
-- **Credentials Management**: Update admin username and password securely from settings.
 
-### 📧 Automated Email Notifications (SMTP)
-- **Guest Confirmation**: Automated booking received emails with reference codes and booking summary.
-- **Admin Alerts**: Instant notifications sent to resort management upon every new booking submission.
-- **Status Updates**: Automated customer notifications when bookings are confirmed or rejected.
+- Protected administrator authentication.
+- Booking filters for Pending, Confirmed, Rejected, and Cancelled statuses.
+- Receipt preview and download for supported image and PDF formats.
+- Internal notes for each booking.
+- Revenue summaries, advance-payment tracking, check-in balances, and printable monthly reports.
+- Administrator username and password management.
 
----
+### 📧 Email Notifications
+
+- Booking-submission acknowledgements for guests.
+- New-booking alerts for resort management.
+- Customer notifications for booking confirmation or rejection.
+- SMTP-based email delivery.
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: React 18, Vite, React Router 6, Tailwind CSS, Lucide-style SVG Icons.
-- **Backend**: Laravel 11, PHP 8.2+, MySQL / MariaDB, Symfony Mailer (SMTP / SSL).
-- **Environment**: Compatible with XAMPP, Apache, Nginx, or standalone PHP server.
+| Layer | Technology | Verified local version |
+| --- | --- | --- |
+| Frontend | React | 19.3.0 |
+| Build tool | Vite | 8.3.0 |
+| Routing | React Router DOM | 7.18.4 |
+| Styling | Tailwind CSS | 3.4.19 |
+| Backend | Laravel | 12.69.2 |
+| Database | MySQL / MariaDB | Depends on installation |
+| Email | SMTP / Laravel Mail | Depends on configuration |
+| Development tools | PHP, Composer, Node.js, npm, XAMPP | Depends on installation |
 
----
+> Versions above were verified in the development environment in October 2026. Installed dependency versions may differ after future updates.
 
-## 🚀 Getting Started
+## 📂 Project Structure
+
+```text
+ATAS-Resort-Management-System/
+├── backend/                    # Laravel API and business logic
+│   ├── app/
+│   │   ├── Http/Controllers/Api/ # Booking and admin endpoints
+│   │   ├── Mail/               # Email notification classes
+│   │   └── Models/             # Eloquent models
+│   ├── config/                 # Application configuration
+│   ├── database/
+│   │   ├── migrations/         # Database schema
+│   │   └── seeders/            # Initial data and admin seeder
+│   ├── resources/views/emails/ # Email templates
+│   └── routes/api.php          # API routes
+├── frontend/                   # React + Vite application
+│   ├── src/
+│   │   ├── components/         # Shared UI components
+│   │   ├── pages/              # Guest and admin pages
+│   │   └── utils/              # Helpers and validation
+│   ├── package.json
+│   └── vite.config.js
+├── .gitignore
+└── README.md
+```
+
+## 🚀 Getting Started (Windows / PowerShell)
 
 ### Prerequisites
-- **Node.js** (v18+) & **npm**
-- **PHP** (v8.2+) with extensions: `pdo_mysql`, `openssl`, `mbstring`, `fileinfo`, `curl`
-- **Composer**
-- **MySQL / MariaDB** (via XAMPP or standalone)
 
----
+- **PHP 8.2+** and required Laravel extensions, including `pdo_mysql`, `mbstring`, `openssl`, `fileinfo`, and `curl`.
+- **Composer** for PHP dependencies.
+- **Node.js and npm** compatible with the installed Vite version. Check the Node.js engine requirement in `frontend/package.json` before installation.
+- **MySQL or MariaDB**, optionally provided through XAMPP.
+- **Git**.
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/your-username/atas-resort.git
-cd atas-resort
+### 1. Clone the repository
+
+```powershell
+git clone https://github.com/nazeek-mrm/ATAS-Resort-Management-System.git
+cd ATAS-Resort-Management-System
 ```
 
----
+### 2. Create the database
 
-### 2. Backend Setup (Laravel)
-```bash
-# Navigate to backend directory
+Start MySQL/MariaDB through XAMPP or your database service. In phpMyAdmin or another SQL client, create an empty database:
+
+```sql
+CREATE DATABASE atas_resort CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+If your local database has a different name, use that name in the environment configuration below.
+
+### 3. Configure the Laravel backend
+
+From the repository root:
+
+```powershell
 cd backend
-
-# Install PHP dependencies
 composer install
-
-# Create environment file from template
-cp .env.example .env
-
-# Generate application key
+Copy-Item .env.example .env
 php artisan key:generate
-
-# Run database migrations
-php artisan migrate
-
-# Link public storage for uploaded receipts
-php artisan storage:link
 ```
 
-#### Configure `.env` in `backend/`:
-```env
+Edit `backend/.env` with your own database settings:
+
+```dotenv
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=atas_resort
 DB_USERNAME=root
 DB_PASSWORD=
+```
 
-# Gmail SMTP Configuration
+> The empty database password is only an example for certain local XAMPP installations. Use the actual database credentials for your environment. Never use an unprotected root account in production.
+
+Run migrations and configure the public storage link:
+
+```powershell
+php artisan migrate
+php artisan storage:link
+```
+
+### 4. Configure the initial administrator
+
+Add the following **placeholder values** to your private `backend/.env` file:
+
+```dotenv
+SEED_ADMIN_USERNAME=choose_an_admin_username
+SEED_ADMIN_PASSWORD=replace_with_a_strong_unique_password
+SEED_ADMIN_EMAIL=admin@example.com
+```
+
+Use a strong, unique password and a valid administrative email address. With the environment configured and the database migrated, run:
+
+```powershell
+php artisan config:clear
+php artisan db:seed --class=AdminSeeder
+```
+
+> The admin seeder reads credentials from environment variables. Never put real credentials in source code or commit your `.env` file.
+
+### 5. Configure SMTP (optional for local setup)
+
+For Gmail SMTP, configure the following in `backend/.env`:
+
+```dotenv
 MAIL_MAILER=smtp
-MAIL_SCHEME=smtps
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=465
-MAIL_USERNAME=your-admin-email@gmail.com
+MAIL_SCHEME=smtps
+MAIL_USERNAME=your-email@gmail.com
 MAIL_PASSWORD=your-google-app-password
-MAIL_FROM_ADDRESS=your-admin-email@gmail.com
+MAIL_FROM_ADDRESS=your-email@gmail.com
 MAIL_FROM_NAME="ATAS RESORT"
-
 FRONTEND_URL=http://localhost:5173
 ```
 
-> **Note on Gmail SMTP**: Google requires a **16-character Google App Password** generated from [Google Account Security](https://myaccount.google.com/apppasswords). Enter it without spaces in `MAIL_PASSWORD`.
+Gmail accounts using app passwords require an eligible account and a generated app password. See [Google Account App Passwords](https://support.google.com/accounts/answer/185833). Mail settings can differ depending on your email provider and deployment environment.
 
-#### Start Backend Server:
-```bash
+For local development without sending actual messages, consider a safe test mailer configuration supported by your Laravel installation.
+
+### 6. Start the backend
+
+In the `backend` directory:
+
+```powershell
 php artisan serve
-# Server runs at http://localhost:8000
 ```
 
----
+The development server normally runs at **http://127.0.0.1:8000**.
 
-### 3. Frontend Setup (React + Vite)
-```bash
-# Navigate to frontend directory
-cd ../frontend
+### 7. Install and start the frontend
 
-# Install JavaScript dependencies
+Open a **second terminal** from the repository root, or navigate from `backend`:
+
+```powershell
+cd ..\frontend
 npm install
-
-# Start Vite development server
 npm run dev
-# App opens at http://localhost:5173
 ```
 
----
+Open the URL printed by Vite (commonly **http://localhost:5173**).
 
-## 📂 Project Architecture
+> Ensure that the frontend API configuration points to the Laravel backend URL used on your machine.
 
-```
-atas-resort/
-├── backend/                  # Laravel 11 REST API
-│   ├── app/
-│   │   ├── Http/Controllers/Api/  # Booking & Admin Controllers
-│   │   ├── Mail/                  # Email Mailable Classes
-│   │   └── Models/                # Eloquent Models (Booking, BookedDate, Admin)
-│   ├── config/                    # Application Configuration (mail, cors, db)
-│   ├── database/migrations/       # Database Schema Migrations
-│   ├── resources/views/emails/    # HTML Email Templates
-│   └── routes/api.php             # API Endpoints
-│
-├── frontend/                 # React 18 + Vite SPA
-│   ├── src/
-│   │   ├── components/            # ClassicalModal, Navbar, Footer, Icons, Toast
-│   │   ├── pages/                 # HomePage, BookingPage, AdminLogin, AdminDashboard
-│   │   ├── utils/                 # Validation & Helper Utilities
-│   │   ├── api.js                 # Axios API Client Configuration
-│   │   └── index.css              # Global Styling & Keyframe Animations
-│   ├── package.json
-│   └── vite.config.js
-│
-├── .gitignore                # Comprehensive Git Ignore Rules
-└── README.md                 # System Documentation
-```
+## 🔒 Security and Privacy
 
----
+- Never commit `.env` files, database passwords, SMTP app passwords, or Laravel application keys.
+- Keep initial administrator credentials in private environment configuration, not in seeders or source code.
+- Use strong passwords and secure deployment-specific settings.
+- Do not upload real guest data, payment receipts, or private business records to the public repository.
+- Review `git status` and staged changes before committing.
+- Use HTTPS, appropriate access controls, backups, and production-safe configuration before deploying publicly.
 
-## 🔒 Security Best Practices
+## 📸 Screenshots
 
-- `backend/.env` is ignored by Git to prevent exposing credentials, database passwords, or SMTP app passwords.
-- Always use `.env.example` as a template when cloning into new environments.
+Screenshots of the homepage, availability calendar, booking process, and admin dashboard can be added in `docs/screenshots/`.
 
----
+> Use demonstration data and remove personal or confidential information from screenshots.
+
+## 🧭 Project Status
+
+The source code is published for development and documentation. A GitHub repository is **not** the same as a deployed production website; running the application requires a configured frontend, backend, and database.
+
+## 👨‍💻 Developer
+
+**Nazeek MRM** — [GitHub Profile](https://github.com/nazeek-mrm)
 
 ## 📄 License
-This project is open-source and available under the [MIT License](LICENSE).
+
+No open-source license is specified in this repository documentation. If a license is added later, refer to the repository's `LICENSE` file for its terms.
